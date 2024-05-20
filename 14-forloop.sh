@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {1..100}
+for i in {1..150}
 do 
    echo "$i"
 done
