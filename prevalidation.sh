@@ -7,17 +7,17 @@ VALIDATE(){
     echo " $1 info is :" &>>$LOG_FILES
 }
 #fetching prevalidation outputs in log files
-VALIDATE() "Mmeory info"
+VALIDATE "Memory info"
 free -g &>>$LOG_FILES
-VALIDATE() "CPU info"
+VALIDATE "CPU info"
 lscpu &>>$LOG_FILES
-VALIDATE() "fstab info"
+VALIDATE "fstab info"
 cat /etc/fstab &>>$LOG_FILES
-VALIDATE() "filesystem info"
+VALIDATE "filesystem info"
 df -h &>>$LOG_FILES
-VALIDATE() "ip address info"
+VALIDATE "ip address info"
 ifconfig &>>$LOG_FILES
-VALIDATE() "ip address config info"
+VALIDATE "ip address config info"
 cat /etc/sysconfig/network-scripts/ifcf-eth* &>>$LOG_FILES
 cat $LOG_FILES
 echo "pre validation has been completed and log file stored in /tmp"
