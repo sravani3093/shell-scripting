@@ -1,5 +1,7 @@
-NAME1=$1
-NAME2=$2
+#!/bin/bash
+
+NAME1=Sravani
+NAME2=Mihir
 echo "$NAME1::how r u"
 echo "$NAME2::I am fine ,How r u"
 echo "$NAME1:i m good,why u r not coming to school"
