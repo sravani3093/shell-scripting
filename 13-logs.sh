@@ -2,6 +2,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%s)
 Log_file=/tmp/$0_$TIMESTAMP.log
+echo "script started executing at $TIMESTAMP" &>>$Log_file
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
