@@ -22,7 +22,7 @@ cat $LOG_FILES
 echo "pre validation has been completed and log file stored in /tmp"
 if [ $ID -ne 0 ]
 then
-   echo -e "\e[31m ERROR:you are not root user,please run as root user \e[0m"
+   echo -e "\e[31m ERROR:you are not root user, to reboot the server please run as root user \e[0m"
    exit 1
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m"
