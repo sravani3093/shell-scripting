@@ -4,10 +4,10 @@ ID=$(id -u)
 VALIDATE(){
     if [ $? -ne 0 ]
     then 
-        echo "ERROR:MySql uninstallation is unsuccessfull"
+        echo "ERROR:package uninstallation is unsuccessfull"
         exit 1
     else 
-        echo "MYSQL uninstallation  successfully"
+        echo "package uninstallation  successfully"
     fi
 }
 
