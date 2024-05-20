@@ -10,13 +10,12 @@ df -h &>>$LOG_FILES
 ifconfig &>>$LOG_FILES
 cat $LOG_FILES
 echo "pre validation has been completed and log file stored in /tmp"
-echo -e "\e[32m proceeding to reboot the server \e[0m"
 if [ $ID -ne 0 ]
 then
    echo -e "\e[31m ERROR:you are not root user,please run as root user \e[0m"
    exit 1
 else
-   echo -e "\e[32m starting the pre-validateion process \e[0m"
+   echo -e "\e[32m proceeding to reboot the server \e[0m"
 fi
 reboot &>>$LOG_FILES
 
