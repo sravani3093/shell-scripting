@@ -2,7 +2,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOG_FILES=/tmp/$0_$TIMESTAMP.log
-VALIDATE(){z
+VALIDATE(){
     echo "---------------------------------------" &>>$LOG_FILES
     echo " $1 info is :" &>>$LOG_FILES
 }
