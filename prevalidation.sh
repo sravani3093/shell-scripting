@@ -1,7 +1,7 @@
 #!/bin/bash
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOG_FILES=/tmp_$0_$TIMESTAMP.log
+LOG_FILES=/tmp/$0_$TIMESTAMP.log
 if [ $ID -ne 0 ]
 then
    echo -e "\e[31m ERROR:you are not root user,please login as root user and run \e[0m"
