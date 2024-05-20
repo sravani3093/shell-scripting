@@ -1,5 +1,5 @@
-NAME1=echo "Enter the value of Name1"
-NAME2=echo "Enter the value of Name2"
+echo "Enter the value of Name1"
+echo "Enter the value of Name2"
 read NAME1
 read NAME2
 echo "$NAME1::how r u"
