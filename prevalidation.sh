@@ -17,8 +17,7 @@ VALIDATE "filesystem info"
 df -h &>>$LOG_FILES
 VALIDATE "ip address info"
 ifconfig &>>$LOG_FILES
-VALIDATE "ip address config info"
-cat /etc/sysconfig/network-scripts/ifcf-eth* &>>$LOG_FILES
+
 cat $LOG_FILES
 echo "pre validation has been completed and log file stored in /tmp"
 if [ $ID -ne 0 ]
@@ -28,7 +27,7 @@ then
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m"
 fi
-#reboot &>>$LOG_FILES
+reboot &>>$LOG_FILES
 
 
 
