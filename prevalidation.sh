@@ -8,14 +8,13 @@ then
    exit 1
 else
    echo -e "\e[32m starting the pre-validateion process \e[0m]"
-
+fi
 #fetching prevalidation outputs in log files
 free -g &>>$LOG_FILES
 lscpu &>>$LOG_FILES
 cat /etc/fstab &>>$LOG_FILES
 df -h &>>$LOG_FILES
 ifconfig &>>$LOG_FILES
-
 
 
    
