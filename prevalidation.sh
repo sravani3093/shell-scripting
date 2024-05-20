@@ -18,7 +18,7 @@ ifconfig &>>$LOG_FILES
 cat $LOG_FILES
 echo "pre validation has been completed and log file stored in /tmp"
 echo -e "\e[32m proceeding to reboot the server \e[0m"
-shutdown -R
+reboot
 
 
 
