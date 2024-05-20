@@ -2,7 +2,8 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOG_FILES=/tmp/$0_$TIMESTAMP.log
-VALIDATE(){
+VALIDATE(){z
+    echo "---------------------------------------" &>>$LOG_FILES
     echo " $1 info is :" &>>$LOG_FILES
 }
 #fetching prevalidation outputs in log files
