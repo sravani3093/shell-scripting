@@ -27,7 +27,7 @@ then
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m"
 fi
-reboot &>>$LOG_FILES
+#reboot &>>$LOG_FILES
 
 
 
