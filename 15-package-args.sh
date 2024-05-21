@@ -36,7 +36,7 @@ do
         yum install $PACKAGE -y &>>$LOGFILE #installing the package
         VALIDATE $? "INSTALLATION OF $PACKAGE"
     else
-        echo  -e "$PACKAGE IS ALREADY INSTALLED.... $G SKIPPING $N" #if package is already installed skipping 
+        echo  -e "$PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N" #if package is already installed skipping 
     fi
 done #end of for loop
  
