@@ -27,13 +27,12 @@ else
 fi
 for PACKAGE in $@
 do
-    yum  list installed $PACKAGE &>>$LOGFILE
+    yum  list install $PACKAGE &>>$LOGFILE
     if [ $? -ne 0 ]
     then 
         echo "$PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N"
     else
         yum install $PACKAGE &>>$LOGFILE
         VALIDATE $? " INSTALLATION OF $PACKAGE"
-
     fi
 done
