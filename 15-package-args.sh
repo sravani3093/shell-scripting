@@ -5,7 +5,7 @@ G=\e[32m
 Y=\e[33m
 N=\e[0m
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOGFILE=/var/log/$0_$TIMESTAMP.log
+LOGFILE=/tmp/$0_$TIMESTAMP.log
 
 VALIDATE() {
     if [ $1 -ne 0 ]
@@ -18,7 +18,7 @@ VALIDATE() {
 
 echo "script started executing at : $TIMESTAMP" &>>$LOGFILE
 
-if[ $ID -ne 0 ]
+if [ $ID -ne 0 ]
 then 
     echo -e " $R please run the script with root user $N"
     exit 1
