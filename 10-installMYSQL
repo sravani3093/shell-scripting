@@ -16,5 +16,3 @@ then
 else 
    echo "MYSQL installed successfully"
 fi
-
-
