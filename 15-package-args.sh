@@ -7,7 +7,8 @@ Y="\e[33m"
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$0_$TIMESTAMP.log
-who am i &>>$LOGFILE
+USERNAME=$(who am i)
+echo "user who is executing the script is : $USERNAME" &>>$LOGFILE
 echo "script started executing at : $TIMESTAMP " &>>$LOGFILE
 
 VALIDATE() { #function created to validate installation of packages
