@@ -11,9 +11,9 @@ echo "script started executing at : $TIMESTAMP " &>>$LOGFILE
 VALIDATE() { #function created to validate installation of packages
     if [ $1 -ne 0 ]
     then 
-       echo -e "$2 IS INSTALLATION IS .......$R FAILED $N "
+       echo -e "$2  .......$R FAILED $N "
     else
-       echo -e " $2 IS INSTALLED........ $G SUCCESSFULLY $N "
+       echo -e " $2 ........ $G SUCCESSFULLY $N "
     fi #reverse of if end of if loop
 }
 
@@ -29,10 +29,10 @@ fi #reverse of if end of if loop
 #$@ represent all arguments echoing
 for PACKAGE in $@
 do
-    yum  list installed $PACKAGE &>>$LOGFILE  #checking the package installation file in server
-    if [ $? -ne 0 ]
+    rpm -qa | grep -i $PACKAGE &>>$LOGFILE  #checking the package installation file in server
+    if [ $? -ne 0 ] #if not installed
     then 
-        yum install $PACKAGE  -y &>>$LOGFILE #installing hte package
+        yum install $PACKAGE -y &>>$LOGFILE #installing the package
         VALIDATE $? "INSTALLATION OF $PACKAGE"
     else
         echo " $PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N " #if package is already installed skipping 
