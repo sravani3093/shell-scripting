@@ -11,18 +11,18 @@ echo "script started executing at : $TIMESTAMP " &>>$LOGFILE
 VALIDATE() { #function created to validate installation of packages
     if [ $1 -ne 0 ]
     then 
-       echo -e "$2  .......$R FAILED $N "
+       echo -e "$2  .......$R FAILED $N"
     else
-       echo -e " $2 ........ $G SUCCESSFULLY $N "
+       echo -e "$2 ........ $G SUCCESSFULLY $N"
     fi #reverse of if end of if loop
 }
 
 if [ $ID -ne 0 ] #if id 0 then it is root user 
 then 
-    echo -e " $R please run the script with root user $N "
+    echo -e "$R please run the script with root user $N"
     exit 1
 else
-    echo -e " $G proceeding to run the package installation $N "
+    echo -e "$G proceeding to run the package installation $N"
 fi #reverse of if end of if loop
 # mysql postfix are package
 #first package will be taken as argument 
@@ -35,7 +35,7 @@ do
         yum install $PACKAGE -y &>>$LOGFILE #installing the package
         VALIDATE $? "INSTALLATION OF $PACKAGE"
     else
-        echo " $PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N " #if package is already installed skipping 
+        echo "$PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N" #if package is already installed skipping 
     fi
 done #end of for loop
  
