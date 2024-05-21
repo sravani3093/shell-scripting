@@ -5,7 +5,7 @@ G=\e[32m
 Y=\e[33m
 N=\e[0m
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOGFILE=/var/log/messages/$0_$TIMESTAMP.log
+LOGFILE=/var/log/$0_$TIMESTAMP.log
 
 VALIDATE() {
     if [ $1 -ne 0 ]
@@ -27,13 +27,13 @@ else
 fi
 for PACKAGE in $@
 do
-    yum installed $PACKAGE &>>$LOGFILE
+    yum  list installed $PACKAGE &>>$LOGFILE
     if [ $? -ne 0 ]
     then 
         echo "$PACKAGE IS ALREADY INSTALLED.... $Y SKIPPING $N"
     else
         yum install $PACKAGE &>>$LOGFILE
-        VALIDATE $? "$PACKAGE"
+        VALIDATE $? " INSTALLATION OF $PACKAGE"
 
     fi
 done
