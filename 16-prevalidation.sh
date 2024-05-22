@@ -108,4 +108,5 @@ main() {
 }
 
 # Execute the main function
-Main
+main
+echo "Server information collected. Check $LOGFILE"
