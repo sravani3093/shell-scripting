@@ -96,6 +96,7 @@ fi
 #}
 main() {
     is_physical
+    user_details
     collect_system_info
     collect_cpu_memory_info
     collect_running_services
