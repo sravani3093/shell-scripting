@@ -28,16 +28,19 @@ IPADDRESS_DETAILS(){
     ifconfig >> "$LOGFILE"
     ls /etc/sysconfig/network-secritps >> "$LOGFILE"
     cat /etc/sysconfig/network-secritps/ifcfg-* >> "$LOGFILE"
+    cat /etc/resolv.conf >> "$LOGFILE"
 }
 collect_cpu_memory_info() {
     echo "=== CPU and Memory Usage ===" >> "$LOGFILE"
     top -bn1 | awk '/Cpu/ { print "CPU Usage: " $2 "%" }' >> "$LOGFILE"
-    free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
     lscpu >> "$LOGFILE"
-    free -g >> "$LOGFILE"
-    echo >> "$LOGFILE"
-    sar -r 5 10 >> "$LOGFILE"
     sar 5 10 >> "$LOGFILE"
+    echo "======================" >> "$LOGFILE"
+    free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
+    sar -r 5 10 >> "$LOGFILE"
+    echo >> "$LOGFILE"
+   
+    
 
 }
 # Collect running services
@@ -94,6 +97,7 @@ main() {
     collect_running_services
     collect_filesystem_info
     collect_multipath_powermt
+    IPADDRESS_DETAILS
     root_user_validation
     #server_reboot
 
