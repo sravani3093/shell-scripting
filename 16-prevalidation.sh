@@ -52,6 +52,7 @@ collect_filesystem_info() {
     echo "=== Filesystem Details ===" >> "$LOGFILE"
     df -h >>  "$LOGFILE"
     cat /etc/fstab >> "$LOGFILE"
+    pvs >> "$LOGFILE"
     vgs >> "$LOGFILE"
     lvs >> "$LOGFILE"
     lsblk >> "$LOGFILE"
