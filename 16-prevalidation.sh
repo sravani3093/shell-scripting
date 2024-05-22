@@ -10,7 +10,7 @@ user_details() {
 
 is_physical() {
     lscpu | grep -q Hypervisor
-    if [ $? -eq 0 ]; 
+    if [ $? -eq 0 ]
     then
         echo "Server Type: Virtual Machine"
     else
@@ -28,8 +28,7 @@ IPADDRESS_DETAILS() {
    ifconfig >> "$LOGFILE"
    cat /etc/resolv.conf >> "$LOGFILE"
    for ifcfg_file in /etc/sysconfig/network-scripts/ifcfg-*; do
-     if [ -f "$ifcfg_file" ];
-     then
+     if [ -f "$ifcfg_file" ];then
         echo "=== $ifcfg_file ===" >> "$LOGFILE"
         cat "$ifcfg_file" >> "$LOGFILE"
         echo >> "$OUTPUT_FILE"  # Add a blank line between files
