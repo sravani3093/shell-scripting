@@ -26,8 +26,8 @@ collect_system_info() {
 IPADDRESS_DETAILS(){
    echo "=== IP Details ===" >> "$LOGFILE"
     ifconfig >> "$LOGFILE"
-    ls /etc/sysconfig/network-secritps >> "$LOGFILE"
-    cat /etc/sysconfig/network-secritps/ifcfg-* >> "$LOGFILE"
+    ls /etc/sysconfig/network-scripts >> "$LOGFILE"
+    cat /etc/sysconfig/network-scripts/ifcfg-* >> "$LOGFILE"
     cat /etc/resolv.conf >> "$LOGFILE"
 }
 collect_cpu_memory_info() {
