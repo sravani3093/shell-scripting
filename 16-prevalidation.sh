@@ -1,11 +1,11 @@
 #!/bin/bash
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOG_FILES=/tmp/$0_$TIMESTAMP.log
+LOG_FILE="/tmp/$0_$TIMESTAMP.logE"
 user_details(){
-   echo "=== user details ===" &>>$LOGFILE
+   echo "=== user details ==="  >> "$LOGFILE"
    USERNAME=$(who am i) #validating the user details who is running the script
-    echo " preshutdown validation started by :$USERNAME at $TIMESTAMP" &>>$LOG_FILES
+    echo " preshutdown validation started by :$USERNAME at $TIMESTAMP"  >> "$LOGFILE"
 }
 
 is_physical() {
@@ -17,59 +17,59 @@ is_physical() {
         echo "Server Type: Physical Server"
     fi
 collect_system_info() {
-    echo "=== System Information ===" &>>$LOGFILE
-    uname -a &>>$LOGFILE
-    cat /etc/redhat-release
-    echo &>>$LOGFILE
+    echo "=== System Information ===" >> "$LOGFILE"
+    uname -a >> "$LOGFILE"
+    cat /etc/redhat-release >> "$LOGFILE"
+    echo >> "$LOGFILE"
 }
 
 IPADDRESS_DETAILS(){
-   echo "=== IP Details ===" &>>$LOGFILE
-    ifconfig &>>$LOGFILE
-    ls /etc/sysconfig/network-secritps &>>$LOGFILE
-    cat /etc/sysconfig/network-secritps/ifcfg-* &>>$LOGFILE
+   echo "=== IP Details ===" >> "$LOGFILE"
+    ifconfig >> "$LOGFILE"
+    ls /etc/sysconfig/network-secritps >> "$LOGFILE"
+    cat /etc/sysconfig/network-secritps/ifcfg-* >> "$LOGFILE"
 }
 collect_cpu_memory_info() {
-    echo "=== CPU and Memory Usage ===" &>>$LOGFILE
-    top -bn1 | awk '/Cpu/ { print "CPU Usage: " $2 "%" }' &>>$LOGFILE
-    free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' &>>$LOGFILE
-    lscpu &>>$LOGFILE
+    echo "=== CPU and Memory Usage ===" >> "$LOGFILE"
+    top -bn1 | awk '/Cpu/ { print "CPU Usage: " $2 "%" }' >> "$LOGFILE"
+    free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
+    lscpu >> "$LOGFILE"
     free -g >> $LOGFILE
-    echo &>>$LOGFILE
-    sar -r 5 10 &>>$LOGFILE
-    sar 5 10 &>>$LOGFILE
+    echo >> "$LOGFILE"
+    sar -r 5 10 >> "$LOGFILE"
+    sar 5 10 >> "$LOGFILE"
 
 }
 # Collect running services
 collect_running_services() {
-    echo "=== Running Services ===" &>>$LOGFILE
-    systemctl list-units --type=service --state=running &>>$LOGFILE
-    echo &>>$LOGFILE
+    echo "=== Running Services ===" >> "$LOGFILE"
+    systemctl list-units --type=service --state=running >> "$LOGFILE"
+    echo >> "$LOGFILE"
 }
 
 # Collect filesystem details
 collect_filesystem_info() {
-    echo "=== Filesystem Details ===" &>>$LOGFILE
+    echo "=== Filesystem Details ===" >> "$LOGFILE"
     df -h >>  $LOGFILE
-    cat /etc/fstab &>>$LOGFILE
-    vgs &>>$LOGFILE
-    lvs &>>$LOGFILE
-    lsblk &>>$LOGFILE
-    echo   &>>$LOGFILE
+    cat /etc/fstab >> "$LOGFILE"
+    vgs >> "$LOGFILE"
+    lvs >> "$LOGFILE"
+    lsblk >> "$LOGFILE"
+    echo  >> "$LOGFILE"
 }
 # Display multipath and PowerMT (if physical server)
 collect_multipath_powermt() {
     if [ -f /etc/multipath.conf ]; then
-        echo "=== Multipath Configuration ===" &>>$LOGFILE
-        cat /etc/multipath.conf &>>$LOGFILE
-        multipath -ll &>>$LOGFILE
-        echo  &>>$LOGFILE
+        echo "=== Multipath Configuration ===" >> "$LOGFILE"
+        cat /etc/multipath.conf >> "$LOGFILE"
+        multipath -ll >> "$LOGFILE"
+        echo  >> "$LOGFILE"
     fi
 
     if command -v powermt &>/dev/null; then
-        echo "=== PowerMT Information ===" &>>$LOGFILE
-        powermt display dev=all &>>$LOGFILE
-        echo   &>>$LOGFILE
+        echo "=== PowerMT Information ===" >> "$LOGFILE"
+        powermt display dev=all >> "$LOGFILE"
+        echo   >> "$LOGFILE"
     fi
 }
 
@@ -84,7 +84,7 @@ fi
 }
 
 #server_reboot(){
-   #reboot  &>>$LOGFILE #reboot the server 
+   #reboot  >> "$LOGFILE" #reboot the server 
 }
 main() {
     is_physical
