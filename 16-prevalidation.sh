@@ -91,9 +91,7 @@ else
 fi
 }
 
-#server_reboot(){
-   #reboot  >> "$LOGFILE" #reboot the server 
-#}
+
 main() {
     is_physical
     user_details
@@ -104,10 +102,14 @@ main() {
     collect_multipath_powermt
     IPADDRESS_DETAILS
     root_user_validation
-    #server_reboot
-
+   
 }
 
 # Execute the main function
 main
 echo "Server information collected. Check $LOGFILE"
+cat $LOGFILE
+echo "proceeding to reboot the server as validation as been completed"
+reboot >> "$LOGFILE"
+
+
