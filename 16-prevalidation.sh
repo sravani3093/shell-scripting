@@ -11,9 +11,9 @@ user_details() {
 is_physical() {
     lscpu | grep -q Hypervisor
     if [ $? -eq 0 ]; then
-        echo "Server Type: Virtual Machine"
+        echo "Server Type: Virtual Machine" >> "$LOGFILE"
     else
-        echo "Server Type: Physical Server"
+        echo "Server Type: Physical Server" >> "$LOGFILE"
     fi
 }
 collect_system_info() {
