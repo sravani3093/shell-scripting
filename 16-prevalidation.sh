@@ -95,7 +95,7 @@ then
    exit 1
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m" #if root user validation is success then proceed to reboot hte server
-fi.
+fi
 }
 
 main() {
