@@ -2,7 +2,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0_$TIMESTAMP.logE"
-user_details(){
+user_details() {
    echo "=== user details ==="  >> "$LOGFILE"
    USERNAME=$(who am i) #validating the user details who is running the script
     echo " preshutdown validation started by :$USERNAME at $TIMESTAMP"  >> "$LOGFILE"
@@ -40,9 +40,7 @@ collect_cpu_memory_info() {
     sar -r 5 10 >> "$LOGFILE"
     echo >> "$LOGFILE"
    
-    
-
-}
+    }
 # Collect running services
 collect_running_services() {
     echo "=== Running Services ===" >> "$LOGFILE"
@@ -77,7 +75,7 @@ collect_multipath_powermt() {
     fi
 }
 
-root_user_validation(){
+root_user_validation() {
    if [ $ID -ne 0 ] #root user validation
 then
    echo -e "\e[31m ERROR:you are not root user, to reboot the server please run as root user \e[0m"
@@ -89,7 +87,7 @@ fi
 
 #server_reboot(){
    #reboot  >> "$LOGFILE" #reboot the server 
-}
+#}
 main() {
     is_physical
     collect_system_info
