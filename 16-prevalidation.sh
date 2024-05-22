@@ -44,6 +44,7 @@ collect_cpu_memory_info() {
     echo "======================" >> "$LOGFILE"
     free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
     sar -r 5 10 >> "$LOGFILE"
+    top >> "$LOGFILE"
     echo >> "$LOGFILE"
    
     }
@@ -81,6 +82,12 @@ collect_multipath_powermt() {
     fi
 }
 
+port_listening_status() {
+   echo  "=== Port listening information ===" >> "$LOGFILE"
+   netstat -tulpn | grep listen >> "$LOGFILE"
+   echo   >> "$LOGFILE"
+}
+
 root_user_validation() {
    if [ $ID -ne 0 ] #root user validation
 then
@@ -102,14 +109,15 @@ main() {
     collect_multipath_powermt
     IPADDRESS_DETAILS
     root_user_validation
+    port_listening_status
    
 }
 
 # Execute the main function
 main
 echo "Server information collected. Check $LOGFILE"
-cat $LOGFILE
-echo "proceeding to reboot the server as validation as been completed"
+#cat $LOGFILE
+#echo "proceeding to reboot the server as validation as been completed"
 #reboot >> "$LOGFILE"
 
 
