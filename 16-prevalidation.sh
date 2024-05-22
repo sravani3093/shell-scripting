@@ -23,12 +23,19 @@ collect_system_info() {
     echo >> "$LOGFILE"
 }
 
-IPADDRESS_DETAILS(){
+IPADDRESS_DETAILS() {
    echo "=== IP Details ===" >> "$LOGFILE"
-    ifconfig >> "$LOGFILE"
-    ls /etc/sysconfig/network-scripts >> "$LOGFILE"
-    cat /etc/sysconfig/network-scripts/ifcfg-* >> "$LOGFILE"
-    cat /etc/resolv.conf >> "$LOGFILE"
+   ifconfig >> "$LOGFILE"
+   cat /etc/resolv.conf >> "$LOGFILE"
+   for ifcfg_file in /etc/sysconfig/network-scripts/ifcfg-*; do
+     if [ -f "$ifcfg_file" ];
+     then
+        echo "=== $ifcfg_file ===" >> "$LOGFILE"
+        cat "$ifcfg_file" >> "$LOGFILE"
+        echo >> "$OUTPUT_FILE"  # Add a blank line between files
+     fi
+done
+    
 }
 collect_cpu_memory_info() {
     echo "=== CPU and Memory Usage ===" >> "$LOGFILE"
