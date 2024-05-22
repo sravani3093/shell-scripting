@@ -95,4 +95,4 @@ then
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m" #if root user validation is success then proceed to reboot hte server
 fi
-#reboot &>>$LOG_FILES  #reboot  the server 
+#reboot
