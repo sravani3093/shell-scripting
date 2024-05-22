@@ -83,8 +83,8 @@ else
 fi
 }
 
-server_reboot(){
-   reboot #reboot the server
+#server_reboot(){
+   #reboot #reboot the server
 }
 main() {
     is_physical
@@ -94,7 +94,7 @@ main() {
     collect_filesystem_info
     collect_multipath_powermt
     root_user_validation
-    server_reboot
+    #server_reboot
 
 }
 
