@@ -67,7 +67,7 @@ collect_multipath_powermt() {
 
     if command -v powermt &>/dev/null; then
         echo "=== PowerMT Information ===" >> $LOGFILE
-        powermt display dev=all >> ">> $LOGFILE
+        powermt display dev=all >> $LOGFILE
         echo >>  $LOGFILE
     fi
 }
