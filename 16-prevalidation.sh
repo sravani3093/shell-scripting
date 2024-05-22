@@ -10,8 +10,7 @@ user_details() {
 
 is_physical() {
     lscpu | grep -q Hypervisor
-    if [ $? -eq 0 ]
-    then
+    if [ $? -eq 0 ];then
         echo "Server Type: Virtual Machine"
     else
         echo "Server Type: Physical Server"
