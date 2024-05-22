@@ -34,7 +34,7 @@ IPADDRESS_DETAILS() {
         cat "$ifcfg_file" >> "$LOGFILE"
         echo >> "$OUTPUT_FILE"  # Add a blank line between files
      fi
-done
+   done
     
 }
 collect_cpu_memory_info() {
