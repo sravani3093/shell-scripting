@@ -51,7 +51,7 @@ collect_cpu_memory_info() {
 # Collect running services
 collect_running_services() {
     echo "=== Running Services ===" >> "$LOGFILE"
-    systemctl list-units --type=service --state=running >> "$LOGFILE"
+    systemctl list-units --type=service  >> "$LOGFILE"
     echo >> "$LOGFILE"
 }
 
@@ -95,7 +95,7 @@ then
    exit 1
 else
    echo -e "\e[32m proceeding to reboot the server \e[0m" #if root user validation is success then proceed to reboot hte server
-fi
+fi.
 }
 
 main() {
