@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Check if critical services are stopped
+if systemctl is-active --quiet critical-service1 critical-service2; then
+    echo "Critical services are still running. Please stop them before rebooting."
+    exit 1
+fi
+
+# Check if important files are backed up
+if [ ! -f /path/to/important/file ]; then
+    echo "Important file not found. Backup before rebooting."
+    exit 1
+fi
+
+# Check for active user sessions
+if who | grep -q .; then
+    echo "Active user sessions detected. Log out all users before rebooting."
+    exit 1
+fi
+
+echo "Prevalidation successful. You can safely reboot the server."
+
+
+[Unit]
+Description=Run prevalidation script before shutdown
+DefaultDependencies=no
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/path/to/prevalidation_script.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=shutdown.target
+
+
+systemctl enable run-before-shutdown.service
