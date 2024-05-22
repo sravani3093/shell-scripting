@@ -18,6 +18,7 @@ is_physical() {
 }
 collect_system_info() {
     echo "=== System Information ===" >> "$LOGFILE"
+    hostname >> "$LOGFILE"
     uname -a >> "$LOGFILE"
     cat /etc/redhat-release >> "$LOGFILE"
     echo >> "$LOGFILE"
