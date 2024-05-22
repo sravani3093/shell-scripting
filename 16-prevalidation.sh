@@ -101,8 +101,8 @@ fi
 
 
 main() {
-    is_physical
     user_details
+    is_physical
     collect_system_info
     collect_cpu_memory_info
     collect_running_services
