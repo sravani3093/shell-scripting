@@ -45,10 +45,9 @@ collect_cpu_memory_info() {
     echo "======================" >> "$LOGFILE"
     free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
     sar -r 5 10 >> "$LOGFILE"
-    top >> "$LOGFILE"
     echo >> "$LOGFILE"
-   
-    }
+    
+}
 # Collect running services
 collect_running_services() {
     echo "=== Running Services ===" >> "$LOGFILE"
