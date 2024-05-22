@@ -110,6 +110,6 @@ main
 echo "Server information collected. Check $LOGFILE"
 cat $LOGFILE
 echo "proceeding to reboot the server as validation as been completed"
-reboot >> "$LOGFILE"
+#reboot >> "$LOGFILE"
 
 
