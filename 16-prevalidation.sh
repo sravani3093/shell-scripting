@@ -8,7 +8,7 @@ user_details() {
     echo " preshutdown validation started by :$USERNAME at $TIMESTAMP"  >> "$LOGFILE"
 }
 
-is_physical() {
+physical() {
     lscpu | grep -q Hypervisor
     if [ $? -eq 0 ]; then
         echo "Server Type: Virtual Machine" >> "$LOGFILE"
@@ -98,10 +98,9 @@ else
 fi
 }
 
-
 main() {
     user_details
-    is_physical
+    physical
     collect_system_info
     collect_cpu_memory_info
     collect_running_services
