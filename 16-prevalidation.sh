@@ -1,7 +1,7 @@
 #!/bin/bash
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOG_FILE="/tmp/$0_$TIMESTAMP.logE"
+LOGFILE="/tmp/$0_$TIMESTAMP.logE"
 user_details(){
    echo "=== user details ==="  >> "$LOGFILE"
    USERNAME=$(who am i) #validating the user details who is running the script
@@ -34,7 +34,7 @@ collect_cpu_memory_info() {
     top -bn1 | awk '/Cpu/ { print "CPU Usage: " $2 "%" }' >> "$LOGFILE"
     free -m | awk '/Mem/ { print "Memory Usage: " $3 " MB" }' >> "$LOGFILE"
     lscpu >> "$LOGFILE"
-    free -g >> $LOGFILE
+    free -g >> "$LOGFILE"
     echo >> "$LOGFILE"
     sar -r 5 10 >> "$LOGFILE"
     sar 5 10 >> "$LOGFILE"
@@ -50,7 +50,7 @@ collect_running_services() {
 # Collect filesystem details
 collect_filesystem_info() {
     echo "=== Filesystem Details ===" >> "$LOGFILE"
-    df -h >>  $LOGFILE
+    df -h >>  "$LOGFILE"
     cat /etc/fstab >> "$LOGFILE"
     vgs >> "$LOGFILE"
     lvs >> "$LOGFILE"
