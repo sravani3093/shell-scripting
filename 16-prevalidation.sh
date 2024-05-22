@@ -84,7 +84,7 @@ collect_multipath_powermt() {
 
 port_listening_status() {
    echo  "=== Port listening information ===" >> "$LOGFILE"
-   netstat -tulpn | grep listen >> "$LOGFILE"
+   netstat -tulpn | grep  -i listen >> "$LOGFILE"
    echo   >> "$LOGFILE"
 }
 
