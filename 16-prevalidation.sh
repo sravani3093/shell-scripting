@@ -1,7 +1,7 @@
 #!/bin/bash
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-LOGFILE="/tmp/$0_$TIMESTAMP.logE"
+LOGFILE="/tmp/$0_$TIMESTAMP.log"
 user_details() {
    echo "=== user details ==="  >> "$LOGFILE"
    USERNAME=$(who am i) #validating the user details who is running the script
