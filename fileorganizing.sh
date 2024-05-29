@@ -8,11 +8,11 @@ cd $SOURCE
 PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
 while IFS= read -r line
 do
-   cd $TARGETDIR
-   mkdir Script_$TIMESTAMP
-   cp $line  /Script_$TIMESTAMP
-   echo "file has been moved successfully: $line"
+   echo "file has  to been moved is $line"
     
     
 done <<< $PATH
    
+cd $TARGETDIR
+mkdir Script_$TIMESTAMP
+cp $line  /Script_$TIMESTAMP
