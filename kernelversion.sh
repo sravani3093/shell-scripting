@@ -3,6 +3,7 @@
 VERSION=$(uname -a)
 For i in hosts
 {
+    ssh centos@i
     $VERSION | grep -i 4.18.0-535.*
     if [ $? -ne 0 ]
     then
@@ -12,4 +13,5 @@ For i in hosts
         echo "kernel varsion of host are :$i"
     
     fi
+    exit
 }
