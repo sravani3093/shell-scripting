@@ -3,7 +3,7 @@ FILE="/home/centos/shell-scripting/hosts"
 VERSION=$(uname -r)
 for hosts in ${FILE[@]}
 {
-    ssh centos@i
+    ssh centos@hosts
     $VERSION | grep -i 4.18.0-535.*
     if [ $? -ne 0 ]
     then
