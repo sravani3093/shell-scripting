@@ -7,6 +7,7 @@ DATE=$(date)
 
 if [ -f $SOURCE]
 then
+   cd $SOURCE
    PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
    if [ $? ne 0]
    then
