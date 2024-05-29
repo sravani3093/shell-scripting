@@ -4,10 +4,16 @@ HOSTS="ip-172-31-22-212.ec2.internal ip-172-31-19-231.ec2.internal ip-172-31-16-
 VERSION=$(uname -r)
 USERNAME=centos
 SCRIPT=$VERSION | grep -i 4.18.0-535.*
-for HOSTNAME in ${HOSTS} ; do
-    ssh -l ${USERNAME} ${HOSTNAME} "${SCRIPT}"
+#for HOSTNAME in ${HOSTS} ; do
+ #   ssh -l ${USERNAME} ${HOSTNAME} "${SCRIPT}"
    #$VERSION | grep -i 4.18.0-535.*
-done
+#done
+
+
+while read hostname
+do 
+  ssh -n ${USERNAME} ${HOSTNAME} "${SCRIPT}" 
+done < $hosts
 if [ $? -ne 0 ]
     then
     
@@ -16,6 +22,5 @@ if [ $? -ne 0 ]
         echo "kernel varsion of host are :$HOSTNAME"
     
     fi
-
 
     
