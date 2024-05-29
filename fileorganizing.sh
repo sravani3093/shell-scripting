@@ -1,12 +1,11 @@
 #!/bin/bash
-
+TARGET_DIR="/tmp/sravani"
 SOURCE_DIR="/home/centos/sravani"
-TIMESTAMP=$(date +%F-%H-%M-%s)
-mkdir -p /tmp/sravani/Script_$TIMESTAMP
-
-PATH=$(ls -lrt $SOURCE_DIR |grep "$(date +'%b %d')" |awk '{print $9}')
-while IFS= read -r line
+for file in "$SOURCE_DIR"
 do
-    echo "$line"
-    cp -pr /home/centos/sravani/$line  /tmp/sravani/Script_$TIMESTAMP
-done <<< $PATH
+   if [[ -f $file ]];
+   then
+   PATH=$(ls -lrt $SOURCE_DIR |grep "$(date +'%b %d')" |awk '{print $9}')
+   echo "$PATH"
+   fi
+done
