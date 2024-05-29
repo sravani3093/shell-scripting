@@ -1,6 +1,6 @@
 #!/bin/bash
 #HOSTS="ip-172-31-22-212.ec2.internal ip-172-31-19-231.ec2.internal ip-172-31-16-84.ec2.internal "
-FILE="//home/centos/shell-scripting/hosts"
+FILE="/home/centos/shell-scripting/hosts"
 VERSION=$(uname -r)
 #USERNAME=centos
 #for HOSTNAME in ${HOSTS} ; do
