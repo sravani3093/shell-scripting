@@ -12,7 +12,7 @@ SCRIPT=$VERSION | grep -i 4.18.0-535.*
 
 while read hostname
 do 
-  ssh -n ${USERNAME} ${HOSTNAME} "${SCRIPT}" 
+  ssh -n ${USERNAME} ${$HOSTS} "${SCRIPT}" 
 done < $hosts
 if [ $? -ne 0 ]
     then
