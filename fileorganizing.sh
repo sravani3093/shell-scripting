@@ -1,6 +1,6 @@
 #!/bin/bash
 TARGETDIR="/tmp/sravani"
-SOURCE="/home/centos/shell-scripting"
+SOURCE="/home/centos"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 DATE=$(date)
 
@@ -15,7 +15,7 @@ then
       cp $line Script_$TIMESTAMP
       echo "file has been moved successfully: $line"
     
-    done < $PATH
+    done <<< $PATH
 else 
     echo "Directory not exist"
 fi
