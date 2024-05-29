@@ -1,9 +1,8 @@
 #!/bin/bash
 
-VERSION=$(uname -a)
+VERSION=$(uname -r)
 for i in hosts
 {
-   
     $VERSION | grep -i 4.18.0-535.*
     if [ $? -ne 0 ]
     then
