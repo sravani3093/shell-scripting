@@ -14,5 +14,5 @@ do
 done <<< $PATH
    
 cd $TARGETDIR
-mkdir Script_$TIMESTAMP
+mkdir  -p /Script_$TIMESTAMP
 cp $line  /Script_$TIMESTAMP
