@@ -7,7 +7,7 @@ cd /tmp/sravani
 mkdir  -p /Script_$TIMESTAMP
 
 cd $SOURCE
-PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
+PATH=$(ls -lrt $SOURCE |grep "$(date +'%b %d')" |awk '{print $9}')
 while IFS= read -r line
 do
    rm-rf $line 
