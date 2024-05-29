@@ -12,14 +12,14 @@ SCRIPT=$VERSION | grep -i 4.18.0-535.*
 
 while read hostname
 do 
-  ssh -n ${USERNAME} ${$HOSTS} "${SCRIPT}" 
+  ssh -n ${USERNAME} ${HOSTS} "${SCRIPT}" 
 done < $hosts
 if [ $? -ne 0 ]
     then
     
         echo " There are no default kernel value"
     else
-        echo "kernel varsion of host are :$HOSTNAME"
+        echo "kernel varsion of host are :$HOSTS"
     
     fi
 
