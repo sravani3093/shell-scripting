@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE=/home/centos/shell-scripting/hosts
+FILE="/home/centos/shell-scripting/hosts"
 VERSION=$(uname -r)
 for hosts in ${FILE[@]}
 {
