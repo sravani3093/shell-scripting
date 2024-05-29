@@ -9,14 +9,14 @@ if [ -f $SOURCE ]
 then
    cd $SOURCE
    PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
-   if [ $? ne 0 ]
-   then
-       echo "there are no files generated on :$DATE"
-    else
-       cd $TARGETDIR
-       DIR=$(mkdir Script_$TIMESTAMP)
-       mv $PATH $DIR
-    fi
+   while IFS= read -r line
+   do
+      cd $TARGETDIR
+       mkdir Script_$TIMESTAMP
+       mv $line Script_$TIMESTAMP
+       echo "file has been moved successfully: $line"
+    
+done <<< $PATH
 else 
     echo "Directory not exist"
 fi
