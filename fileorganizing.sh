@@ -1,7 +1,6 @@
 #!/bin/bash
-TARGETDIR=/tmp/sravani
-SOURCE=echo "please provide the source path"
-read $SOURCE
+TARGETDIR="/tmp/sravani"
+SOURCE="/home/centos/shell-scripting"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 DATE=$(date)
 
@@ -12,11 +11,11 @@ then
    while IFS= read -r line
    do
       cd $TARGETDIR
-       mkdir Script_$TIMESTAMP
-       mv $line Script_$TIMESTAMP
-       echo "file has been moved successfully: $line"
+      mkdir Script_$TIMESTAMP
+      cp $line Script_$TIMESTAMP
+      echo "file has been moved successfully: $line"
     
-done <<< $PATH
+done < $PATH
 else 
     echo "Directory not exist"
 fi
