@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE=/home/centos/shell-scripting/hosts
 VERSION=$(uname -r)
-for i in ${$FILE}
+for i in ${FILE[@]}
 {
     ssh centos@i
     $VERSION | grep -i 4.18.0-535.*
