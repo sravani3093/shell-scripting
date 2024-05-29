@@ -15,7 +15,7 @@ then
       cp $line Script_$TIMESTAMP
       echo "file has been moved successfully: $line"
     
-done < $PATH
+    done < $PATH
 else 
     echo "Directory not exist"
 fi
