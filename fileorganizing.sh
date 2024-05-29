@@ -4,7 +4,7 @@ SOURCE="/home/centos/shell-scripting"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 DATE=$(date)
 
-if [ -f $SOURCE ]
+if [ -d $SOURCE ]
 then
    cd $SOURCE
    PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
