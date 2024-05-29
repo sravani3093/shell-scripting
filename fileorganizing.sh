@@ -1,9 +1,10 @@
 #!/bin/bash
 TARGETDIR=/tmp/sravani
-SOURCE=echo "please provide the source path"
+SOURCE= echo "please provide the source path"
+read $SOURCE
 TIMESTAMP=$(date +%F-%H-%M-%s)
 DATE=$(date)
-read $SOURCE
+
 if [ -f $SOURCE]
 then
    PATH = find $SOURCE  -type f -mtime date -name  "*"
