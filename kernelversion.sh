@@ -3,7 +3,7 @@
 VERSION=$(uname -a)
 For i in hosts
 {
-    $VERSION | grep -i *.212
+    $VERSION | grep -i 4.18.0-535.*
     if [ $? -ne 0 ]
     then
     
