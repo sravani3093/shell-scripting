@@ -10,4 +10,5 @@ For i in hosts
     else
         echo "kernel varsion of host are :$i"
     }
+    fi
 }
