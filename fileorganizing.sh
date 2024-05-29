@@ -12,7 +12,7 @@ then
    do
       cd $TARGETDIR
       mkdir Script_$TIMESTAMP
-      cp $line Script_$TIMESTAMP
+      cp $line  /Script_$TIMESTAMP
       echo "file has been moved successfully: $line"
     
     done <<< $PATH
