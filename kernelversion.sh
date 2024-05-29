@@ -3,10 +3,12 @@ HOSTS="ip-172-31-22-212.ec2.internal ip-172-31-19-231.ec2.internal ip-172-31-16-
 #FILE="/home/centos/shell-scripting/hosts"
 VERSION=$(uname -r)
 USERNAME=centos
+SCRIPT=$VERSION | grep -i 4.18.0-535.*
 for HOSTNAME in ${HOSTS} ; do
-   ssh -l ${USERNAME} ${HOSTNAME} 
-   $VERSION | grep -i 4.18.0-535.*
-    if [ $? -ne 0 ]
+    ssh -l ${USERNAME} ${HOSTNAME} "${SCRIPT}"
+   #$VERSION | grep -i 4.18.0-535.*
+done
+if [ $? -ne 0 ]
     then
     
         echo " There are no default kernel value"
@@ -14,8 +16,6 @@ for HOSTNAME in ${HOSTS} ; do
         echo "kernel varsion of host are :$HOSTNAME"
     
     fi
-
-done
 
 
     
