@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE_DIR="/home/centos"
+SOURCE_DIR="/home/centos/sravani"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 mkdir -p /tmp/sravani/Script_$TIMESTAMP
 
