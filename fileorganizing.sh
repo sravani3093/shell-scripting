@@ -1,14 +1,11 @@
 #!/bin/bash
 
-SOURCE="/home/centos"
+SOURCE_DIR="/home/centos"
 TIMESTAMP=$(date +%F-%H-%M-%s)
-DATE=$(date)
-cd /tmp/sravani
-mkdir  -p /Script_$TIMESTAMP
+mkdir -p /tmp/sravani/Script_$TIMESTAMP
 
-cd $SOURCE
-PATH=$(ls -lrt $SOURCE |grep "$(date +'%b %d')" |awk '{print $9}')
+PATH=$(ls -lrt $SOURCE_DIR |grep "$(date +'%b %d')" |awk '{print $9}')
 while IFS= read -r line
 do
-   rm-rf $line 
+   mv $line  /tmp/sravani/Script_$TIMESTAMP
 done <<< $PATH
