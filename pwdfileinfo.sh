@@ -1,8 +1,8 @@
 #!/bin/bash
 PWD=$(pwd)
-FILEINFO=$(ls-ltr)
+FILEINFO=$(ls -ltr)
 
-if [ $PWD ne 0 ]
+if [ $PWD ne 0 ];
 then  
    echo "Command failed"
 else
