@@ -1,9 +1,9 @@
 #!/bin/bash
 
 VERSION=$(uname -a)
-For i in hosts
+for i in hosts
 {
-    ssh centos@i
+   
     $VERSION | grep -i 4.18.0-535.*
     if [ $? -ne 0 ]
     then
