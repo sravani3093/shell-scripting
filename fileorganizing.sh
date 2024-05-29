@@ -10,10 +10,12 @@ then
    PATH=$(ls -lrt |grep "$(date +'%b %d')" |awk '{print $9}')
    while IFS= read -r line
    do
-      cd $TARGETDIR
-      mkdir Script_$TIMESTAMP
-      cp $line  /Script_$TIMESTAMP
-      echo "file has been moved successfully: $line"
+      #cd $TARGETDIR
+      #mkdir Script_$TIMESTAMP
+      #cp $line  /Script_$TIMESTAMP
+      #echo "file has been moved successfully: $line"
+      echo "Deleting file: $line"
+      rm -rf $line
     
     done <<< $PATH
 else 
